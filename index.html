@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+        <!--Import Google Icon Font-->       
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+        <!--Import materialize.css-->      
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> 
+        <!--Let browser know website is optimized for mobile-->  
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+    </head>
+
+    <body background="imagenes/fondo1.jpg">
+
+
+
+        <nav>
+            <div class="nav-wrapper red">
+                <a href="#!" class="brand-logo"><img src="imagenes/logo1.jpg"> Ingreso Clientes </a>
+                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="index.html">Registro</a></li>
+
+                </ul>
+            </div>
+        </nav>
+
+        <div class="row">
+            <div class="col s3"></div>
+            <div class="col s6">
+                <br><br>
+
+
+
+
+                <div id="login-page" class="row">
+                    <div class="col s12 z-depth-4 card-panel">
+                        <form onsubmit="return validar()">
+                            <div class="row">
+                                <div class="col s3"></div>
+                                <div class="col s6">
+
+                                    <br>
+                                    <br>
+                                    <div class="input-field">
+                                        <input placeholder="Ingrese su Rut ejemplo :01234567-8" id="rut" type="text"
+                                               name="rut">
+                                        <label for="rut">Rut</label>
+                                    </div>
+
+                                    <div class="input-field col s6">
+                                        <input placeholder="Ingrese Nombre" id="nombre" 
+                                               type="text" name="nombre">
+                                        <label for="nombre">Nombre </label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input placeholder="Apellido Paterno y Materno" id="apellido" type="text" 
+                                               name="apellido">
+                                        <label for="apellido">Apellidos </label>
+                                    </div>
+                                    <br>
+                                    <div class="input-field col s6">
+                                        <input placeholder="Ingrese su Edad" id="edad" type="text" 
+                                               name="edad">
+                                        <label for="edad">Edad</label>
+                                    </div>
+
+
+
+                                    <div class="input-field">
+                                        <p>
+
+                                            <input name="sexo1" type="radio" id="m" />
+                                            <label for="m">Masculino</label>
+
+
+                                            <input name="sexo1" type="radio" id="f" />
+                                            <label for="f">Femenino</label>
+
+                                        </p>
+
+                                    </div>
+
+
+                                    <br><br>
+
+                                    <div class="input-field">
+                                        <select>
+                                            <option value="" disabled selected>Elija su Ciudad</option>
+                                            <option value="1">Santiago</option>
+                                            <option value="2">Viña</option>
+                                            <option value="3">Concepcion</option>
+                                            <option value="1">Puerto Mont</option>
+                                            <option value="2">Valparaiso</option>
+                                            <option value="3">Antofagasta</option>
+                                        </select>
+                                        <label>Ciudad</label>
+                                    </div> 
+
+                                    <br>
+
+                                    <div class="input-field">
+                                        <input placeholder="Ingrese su Direccion" id="direccion" type="text" 
+                                               name="direccion">
+                                        <label for="direccion">Direccion</label>
+                                    </div>
+                                    <br>
+                                    <div class="input-field col s6">
+                                        <input placeholder="Numero" id="numero" type="text" 
+                                               name="numero">
+                                        <label for="numero">Numero</label>
+                                    </div>
+
+
+                                    <div class="input-field col s6">
+                                        <select>
+                                            <option value="" disabled selected>Elija su Comuna</option>
+                                            <option value="1">Santiago</option>
+                                            <option value="2">La Florida</option>
+                                            <option value="3">Macul</option>
+                                            <option value="1">Ñuñoa</option>
+                                            <option value="2">Peñalolen</option>
+                                            <option value="3">Las Condes</option>
+
+                                        </select>
+                                        <label>Comuna</label>
+                                    </div> 
+                                    
+                                    <br>
+
+
+                                    <div class="input-field col s6">
+                                        <input placeholder="ejemplo@123.cl" id="correo" type="email" 
+                                               name="correo">
+                                        <label for="correo">Correo electronico</label>
+                                    </div>
+
+
+                                    <div class="input-field col s6">
+                                        <input placeholder="Confirme su correo" id="correo2" type="email" 
+                                               name="correo2">
+                                        <label for="correo2">Confirme correo</label>
+                                    </div>
+                                   
+                                    <button class="btn waves-effect waves-light" >Registrar
+                                        <i class="material-icons right">send</i>
+                                    </button>
+
+
+                                </div>    
+                            </div>    
+
+                        </form>
+
+
+                    </div>    
+                </div>    
+
+            </div>    
+        </div>  
+
+
+        <!--Import jQuery before materialize.js-->     
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>     
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript">
+                            $(document).ready(function () {
+                                $('select').material_select();
+                            });
+ 
+                            function validar()
+
+
+                            {
+                               
+
+                                
+                                var rut = document.getElementById("rut").value;
+                                if (rut == null || rut.length == 0 || /^\s+$/.test(rut))
+                                {
+                                    alert("[ERROR] El rut no debe estar vacio");
+                                    return false;
+                                }
+                                if (rut.length < 10 || rut.length > 10 || /^\s+$/.test(rut))
+                                {
+                                    alert('[ERROR]estructura de rut 12345678-9');
+
+                                    return false;
+                                }
+
+                               
+
+
+                                var nombre = document.getElementById("nombre").value;
+
+                                if (nombre == null || nombre.length == 0 || /^\s+$/.test(nombre))
+                                {
+                                    alert('[ERROR] El nombre no debe estar vacio');
+                                    return false;
+                                }
+
+                                var apellido = document.getElementById("apellido").value;
+                                if (apellido == null || apellido.length == 0 || /^\s+$/.test(apellido))
+                                {
+                                    alert('[ERROR] El apellido no debe estar vacio');
+                                    return false;
+                                }
+
+                                var edad = document.getElementById("edad").value;
+                                if (edad == null || edad.length == 0 || edad.toString(edad)<0|| /^\s+$/.test(edad))
+                                {
+                                    alert('[ERROR] La edad no debe estar vacia, ser negativa o mayor a 120');
+                                    return false;
+                                }
+                                var edad = document.getElementById("edad").value;
+                                if (isNaN(edad))
+                                {
+                                    alert('[ERROR] La edad es numerica');
+                                    return false;
+                                }
+                                
+                               
+
+                                var numero = document.getElementById("numero").value;
+                                if (numero == null || numero.length == 0 || /^\s+$/.test(numero))
+                                {
+                                    alert("[ERROR] numero no debe estar vacio ni ser negativo");
+                                    return false;
+                                }
+
+
+                                if (isNaN(numero))
+                                {
+                                    alert('[ERROR] es numerico');
+                                    return false;
+                                }
+                                
+
+
+
+
+
+                                var correo1 = document.getElementById("correo").value;
+                                var correo2 = document.getElementById("correo2").value;
+
+
+
+                                if (correo1 == null || correo1.length == 0 || correo2 == null || correo2.length == 0 || /^\s+$/.test(correo1) || /^\s+$/.test(correo2))
+                                {
+                                    alert('[ERROR] Ingrerse su correo y confime su correo');
+                                    return false;
+                                } 
+                                
+                                if (correo1 != correo2 || /^\s+$/.test(correo1) || /^\s+$/.test(correo2))
+                                {
+                                    alert('[ERROR] Correo electrónico deben ser iguales ');
+                                    return false;
+                                    
+                                   
+                                }
+                                
+                                
+                                return false;
+                                
+                                
+                                
+                                
+                            }
+
+
+        </script>
+    </body>
+</html>
